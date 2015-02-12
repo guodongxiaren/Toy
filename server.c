@@ -1,4 +1,5 @@
-#include "toy.h"
+#include "server.h"
+#include "do_it.c"
 
 int main(int argc,char **argv){
     int sock;
@@ -23,9 +24,13 @@ int main(int argc,char **argv){
     while(1){
         if((connfd = accept(sock,(struct sockaddr *)&cliaddr,&len)) < 0)
             err_exit("accept时错误");
-        //bzero(msg,sizeof(msg));
-        sprintf(msg,"hello %d\n",i++);
-        write(connfd,msg,strlen(msg));
+        bzero(msg,sizeof(msg));
+
+        read(connfd,msg,sizeof(msg));
+        printf("recv:%s\n",msg);
+        char *msg2 = do_it(msg); 
+        printf("send:%s\n",msg2);
+        write(connfd,msg2,strlen(msg2));
         close(connfd);
     }
 }

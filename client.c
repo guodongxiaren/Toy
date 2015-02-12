@@ -17,10 +17,12 @@ int main(int argc,char **argv){
     }
     char msg[256];
     while(1){
-        if(read(sock,msg,strlen(msg)) > 0)
-            printf("%s",msg);
-        else
-            break;
+        scanf("%s",msg);
+        if(write(sock,msg,sizeof(msg)) <= 0)
+            continue;
+        bzero(msg,sizeof(msg));
+        if(read(sock,msg,256*sizeof(char)) > 0)
+            printf("%s\n",msg);
     }
     
 }
