@@ -3,9 +3,10 @@
 
 int main(int argc,char **argv){
     int sock;
-    if((sock= socket(AF_INET,SOCK_STREAM,0)) < 0){
-        err_exit("服务端创建套接字失败");
-    }
+    sock = sock_service(8);
+    //if((sock= socket(AF_INET,SOCK_STREAM,0)) < 0){
+     //   err_exit("服务端创建套接字失败");
+    //}
     struct sockaddr_in sa;
     bzero(&sa,sizeof(sa));
     sa.sin_family = AF_INET;

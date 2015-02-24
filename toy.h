@@ -13,10 +13,12 @@
 
 //常数宏
 #define SER_PORT 2121    //服务器端口
+//定义TCP和UDP连接
+#define TCP 0x01
+#define UDP 0x02
 
+//函数声明
+int sock_service(int _type);
 //自定义函数
-void err_exit(char *err){
-    perror(err);
-    exit(EXIT_FAILURE);
-}
+void err_exit(char *err);
 #endif
