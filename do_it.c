@@ -6,6 +6,8 @@ char *do_it(const char* cmd){
 
     if(strcmp(cmd,"pwd") == 0){
         pwd();
+    }else if(strcmp(cmd,"bye") == 0){
+        return NULL;
     }
     return msg;
 }

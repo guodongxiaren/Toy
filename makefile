@@ -1,6 +1,6 @@
 CC = gcc
 OBJS = server client
-CFLAGS = -I lib
+CFLAGS = -I lib -g
 
 vpath %.o lib
 ALL: $(OBJS)

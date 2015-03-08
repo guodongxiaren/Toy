@@ -20,10 +20,14 @@ int main(int argc,char **argv){
         scanf("%s",msg);
         if(write(sock,msg,sizeof(msg)) <= 0)
             continue;
+        if(strcmp(msg,"bye") == 0){
+            break;
+        }
         bzero(msg,sizeof(msg));
         if(read(sock,msg,256*sizeof(char)) > 0)
             printf("%s\n",msg);
     }
+    close(sock);
     
 }
 
