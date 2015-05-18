@@ -2,5 +2,5 @@
 #define _SERVER_H
 #include "toy.h"    
 
-char *do_it(const char *cmd);
+char *do_it(char *cmd);
 #endif

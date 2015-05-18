@@ -1,5 +1,5 @@
 CC = gcc
-OBJS = server client
+OBJS = server client 
 CFLAGS = -I lib -g
 
 vpath %.o lib
@@ -9,6 +9,7 @@ server: server.c  sock_service.o err_exit.o
 	$(CC) $(CFLAGS) $^ -o bin/server 
 client: client.c  sock_service.o err_exit.o
 	$(CC) $(CFLAGS) $^ -o bin/client
+
 sock_service.o:
 	cd lib;$(MAKE)
 err_exit.o:
